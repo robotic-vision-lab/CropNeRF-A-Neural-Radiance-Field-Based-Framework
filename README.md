@@ -10,7 +10,7 @@ crops from individual viewpoints poses an immense challenge for image-based
 segmentation methods.
 
 <p align="center">
-  <img src="images/overview.png" alt="overview" width="400"/>
+  <img src="images/overview.PNG" alt="overview" width="400"/>
 </p>
 
 This repository provides source code for our 2025  International Conference on Robotics
@@ -47,7 +47,7 @@ dataset.
 ### CropNeRF Pipeline 
 
 <p align="center">
-  <img src="images/cropnerf_pipeline.png" alt="cropnerf_pipeline" width="800"/>
+  <img src="images/cropnerf_pipeline.PNG" alt="cropnerf_pipeline" width="800"/>
 </p>
 
 ### Installation 
@@ -127,5 +127,6 @@ pointcloud invoke the following command:
 ### CropNeRF25 Dataset License
 
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+
 
 
