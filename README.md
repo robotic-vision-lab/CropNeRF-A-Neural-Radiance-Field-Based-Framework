@@ -60,7 +60,7 @@ First, begin by cloning the project:
 Next, build a docker image and run in a container:
 
     $ docker build -t cropnerf .
-    $ docker run -v {current_directory}:/opt/project -v {CropNeRF25_directory}:/opt/data  -p 0.0.0.0:7007:7007 -it --rm --gpus all nerfacto_latest /bin/bash
+    $ docker run -v {current_directory}:/opt/project -v {CropNeRF25_directory}:/opt/data  -p 0.0.0.0:7007:7007 -it --rm --gpus all cropnerf /bin/bash
 
 Set enviroment variables:
     
@@ -127,4 +127,5 @@ pointcloud invoke the following command:
 ### CropNeRF25 Dataset License
 
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+
 
