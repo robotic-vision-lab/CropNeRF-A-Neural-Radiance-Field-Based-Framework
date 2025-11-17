@@ -54,7 +54,7 @@ dataset.
 
 First, begin by cloning the project:
 
-    $ git clone https://github.com/robotic-vision-lab/NTrack-A-Multiple-Object-Tracker.git
+    $ git clone https://github.com/robotic-vision-lab//CropNeRF-Crop-Phenotyping-in-3D.git
     $ cd CropNERF-Crop-Phenotyping-in-3D
 
 Next, build a docker image and run in a container:
@@ -127,3 +127,4 @@ pointcloud invoke the following command:
 ### CropNeRF25 Dataset License
 
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+
