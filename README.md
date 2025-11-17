@@ -98,25 +98,25 @@ CropNeRF25/
 
 ### Usage 
 
-# Covert segmentation image to label image
+# Covert Segmentation Image to Label Image
     $ python fruit_nerf/utils/convert_segmentation_img_to_label.py 'tree_01'
 
 
-# Pointcloud generation
+# Pointcloud Generation
 We borrowed the 3D pointcloud generation part from [FruitNeRF] {...} paper. To train the NeRF model to generate 3D
 pointcloud invoke the following command: 
 
     $ python debug/train.py fruit_nerf --data /opt/data/training_data/tree_01 --output-dir /opt/data/trained_model
     $ ns-export pointcloud --load-config /opt/data/trained_model/tree_01/fruit_nerf/{filename}/config.yml --output-dir exports/pcd/ --num-points 10000000 --remove-outliers True --normal-method open3d --save-world-frame False --obb_center -0.0571471367 0.1105365818 -0.5400721172 --obb_rotation 0.0000000000 0.0000000000 0.0000000000 --obb_scale 1.0000000000 1.0000000000 1.0000000000
     
-# Segment Pointcloud into super-cluster and sub-cluster
+# Segment Pointcloud into Super-cluster and Sub-clusters
     $ python segmentation/segmenter.py tree_01
 
-# Load sub-cluster and export associated projection from the model
+# Export Projection from the Model
     $python fruit_nerf/scripts/semantic_projection.py pointcloud --load-config /opt/data/trained_model/tree_01/fruit_nerf/{filename}/config.yml --output-dir /opt/data/outputs/exports/pcd/
 
 
-# Merge sub-clusters into crop instances
+# Merge Sub-clusters into Crop Instances
     $ python segmentation/merger.py --base_dir {base_directory} --recording_name tree_01
 
 
@@ -127,6 +127,7 @@ pointcloud invoke the following command:
 ### CropNeRF25 Dataset License
 
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+
 
 
 
