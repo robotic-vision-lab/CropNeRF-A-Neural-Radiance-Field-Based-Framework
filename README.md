@@ -20,13 +20,12 @@ masks for neural radiance field (NeRF) view synthesis. Concretely, we introduce
 crop visibility and mask consistency scores, which are incorporated alongside
 3D information from a NeRF model. This results in an effective segmentation of
 crop instances in 3D and highly-accurate crop counts. Furthermore, our method
-eliminates the dependence on crop-specific parameter tuning.  We validate our
-framework on three agricultural datasets consisting of cotton bolls, apples,
-and pears, and demonstrate consistent counting performance despite major
-variations in crop color, shape, and size. A comparative analysis against the
-state of the art highlights superior performance on crop counting tasks. We
-also contribute a cotton plant dataset, 3DCotton, to advance further research
-on this topic.
+eliminates the dependence on crop-specific parameter tuning. We validate our
+framework on agricultural datasets and demonstrate consistent counting
+performance despite major variations in crop color, shape, and size. A
+comparative analysis against the state of the art highlights superior
+performance on crop counting tasks. We also contribute a cotton plant dataset,
+3DCotton, to advance further research on this topic.
 
 More information on the project can be found on the [CropNeRF
 website](https://robotic-vision-lab.github.io/cropnerf).
