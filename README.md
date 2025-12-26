@@ -67,7 +67,7 @@ First, begin by cloning the project
     $ git clone https://github.com/robotic-vision-lab/CropNeRF-A-Neural-Radiance-Field-Based-Framework
     $ cd CropNeRF-A-Neural-Radiance-Field-Based-Framework
 
-Next, build a docker image and then run inside a container
+Next, build a docker image and then run CropNeRF inside a container
 
     $ docker build -t cropnerf .
     $ docker run -v {current_directory}:/opt/project -v {data_directory}:/opt/data  -p 0.0.0.0:7007:7007 -it --rm --gpus all cropnerf /bin/bash
