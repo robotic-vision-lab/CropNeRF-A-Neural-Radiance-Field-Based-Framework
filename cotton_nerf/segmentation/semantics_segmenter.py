@@ -1,5 +1,4 @@
 from typing import Counter
-
 import numpy as np
 import open3d as o3d
 import  os
@@ -14,7 +13,6 @@ from matplotlib.colors import ListedColormap
 from matplotlib.cm import hsv
 import math
 
-
 # from pyntcloud import PyntCloud
 #
 # cloud = PyntCloud.from_file("some_file.ply")
@@ -26,7 +24,6 @@ pcd = o3d.io.read_point_cloud(os.path.join(input_path,dataname))
 # pcd_data = o3d.data.PLYPointCloud()
 # pcd = o3d.io.read_point_cloud(pcd_data.path)
 # o3d.visualization.draw_geometries([pcd])
-
 
 def crop(pcd):
     min_bound = np.array([-1, -1, -1])
@@ -45,8 +42,6 @@ downpcd = pcd.voxel_down_sample(voxel_size=vx_size) #.005
 pcd = crop(downpcd)
 #o3d.visualization.draw_geometries()
 
-
-
 '''TODO Experiment Idea: show that the performance does not change based on the parameter, show visually and in tabular format'''
 labels = np.array(pcd.cluster_dbscan(eps=2000*vx_size, min_points=20, print_progress=True)) #eps=0.05, 0.004 [5*-25*]
 max_label = labels.max()
@@ -62,8 +57,6 @@ subset_pcd = o3d.geometry.PointCloud()
 subset_pcd.points = o3d.utility.Vector3dVector(np.asarray(pcd.points)[labels == largest_cluster_id])
 #labels = np.array(subset_pcd.cluster_dbscan(eps=500*vx_size, min_points=5, print_progress=True))
 labels = cluster_point_cloud(subset_pcd, eps=10000*vx_size, min_points=10)
-
-
 
 max_label = labels.max()
 print(f" subset point cloud has {max_label + 1} clusters")

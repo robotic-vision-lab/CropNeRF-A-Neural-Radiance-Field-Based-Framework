@@ -2,7 +2,6 @@ import numpy as np
 import cv2
 import os
 
-
 projection_dir = '/opt/data/projection/cam_1'
 segment_img = cv2.imread(os.path.join(projection_dir, 'frame_00002.png' ))
 #segment_img =  cv2.imread(os.path.join(projection_dir, 'frame_00002.jpg' ))
@@ -15,5 +14,4 @@ for i in range(5):
 
 segment_img = cv2.addWeighted(segment_img, .5, merged, .5, 0)
 
-cv2.imwrite( os.path.join(projection_dir, f'dummpy.png'), segment_img)
-
+cv2.imwrite(os.path.join(projection_dir, f'dummpy.png'), segment_img)

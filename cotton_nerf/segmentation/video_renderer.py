@@ -33,7 +33,6 @@ def render_video_from_camera_path(pcd_file, camera_json, output_video, width=128
     writer.close()
     print(f"Video saved to {output_video}")
 
-
 if __name__ == "__main__":
     base_path = r'D:/OneDrive/PhD/RVL/code/3D_phenotyping/cotton_nerf/renders/recording_2024-09-11_12-42-36'
     render_video_from_camera_path(

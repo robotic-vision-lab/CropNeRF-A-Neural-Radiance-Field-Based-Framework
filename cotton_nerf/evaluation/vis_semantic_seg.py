@@ -15,7 +15,6 @@ def show_pcd(pcd, labels=None, full_tree=None, box=None):
         box = o3d.geometry.LineSet.create_from_axis_aligned_bounding_box(pcd.get_axis_aligned_bounding_box())
     box.paint_uniform_color([.765, .129, .282])
 
-
     if labels is not None:
         max_label = labels.max()
         # colors = plt.get_cmap("tab20")(labels / (max_label if max_label > 0 else 1))
@@ -37,7 +36,6 @@ def show_pcd(pcd, labels=None, full_tree=None, box=None):
     vis.run()
     return pcd
 
-
 def view_semantic_cloud(basedir, recording, vis_full_tree):
     tree_pcd_file = 'full_tree_pc.ply'
     semantic_pcd_file = 'semantics_pc.ply'
@@ -58,15 +56,6 @@ def view_semantic_cloud(basedir, recording, vis_full_tree):
 
     vis.run()
 
-
-
-
-
-
-
-
-
-
 def view_super_clusters(basedir, recording):
     input_path = os.path.join(basedir, recording, 'pcd',  'all_super_cluster_info.npy' )
     tree_pcd_file = 'full_tree_pc.ply'
@@ -79,7 +68,6 @@ def view_super_clusters(basedir, recording):
     points_to_highlight= []
 
     for idx in range(n_super_clusters):
-
         sub_clusters = pcd_data[idx]['pcd']
         n_sub_clusters = len(sub_clusters)
         for i in range(n_sub_clusters):
@@ -101,7 +89,6 @@ def view_super_clusters(basedir, recording):
     pcd.points = o3d.utility.Vector3dVector(np.vstack(points))
     #pcd = pcd.crop(pcd_of_interest.get_axis_aligned_bounding_box())
     show_pcd(pcd, np.asarray(labels), pcd_tree, None)
-
 
 def view_sub_clusters_with_camera(basedir, recording, idx):
     input_path = os.path.join(basedir, recording, 'pcd',  'all_super_cluster_info.npy' )
@@ -154,9 +141,6 @@ def view_sub_clusters_with_camera(basedir, recording, idx):
 
     vis.run()
 
-
-
-
 def view_sub_clusters(basedir, recording, idx):
     input_path = os.path.join(basedir, recording, 'pcd',  'all_super_cluster_info.npy' )
     tree_pcd_file = 'full_tree_pc.ply'
@@ -177,7 +161,6 @@ def view_sub_clusters(basedir, recording, idx):
 
     show_pcd(pcd, np.asarray(labels), None, highlight_box)
 
-
 def view_final_instances(basedir, recording):
     input_path = os.path.join(basedir, recording, 'pcd')#r'D:\3d_phenotyping\artifacts\recording_2024-09-11_12-31-01\pcd'
     sem_pcd_file = "full_tree_seg_result.ply"  # "semantics_pc.ply"
@@ -194,9 +177,6 @@ if __name__ == "__main__":
     #view_sub_clusters(basedir, recording, 1)
     view_super_clusters(basedir, recording)
     #view_sub_clusters_with_camera(basedir, recording, 0)
-
-
-
     # input_path = r'D:\3d_phenotyping\artifacts\recording_2024-09-11_12-31-01\pcd'
     # sem_pcd_file = "full_tree_seg_result.ply"#"semantics_pc.ply"
     # tree_pcd_file = 'full_tree_pc.ply' #"full_tree_seg_result.ply"

@@ -19,13 +19,9 @@ fy = 1444.23
 # points_img = points_cam[:,:2] *[fx,-fy] + [cx, cy]
 # points_img = (K[:3,:3]@points_cam.T).T
 
-
-
 c2w = np.asarray( [[-0.02684204,0.99940807,0.021519292,-0.22928147],
 [-0.6656043,-0.0018073402,-0.74630266,-0.8462026],
 [-0.745822,-0.034355618,0.66525877,0.10826472]])
-
-
 
 input_path= r'D:\3d_phenotyping\artifacts\recording_2024-09-11_12-14-59\pcd'
 dataname="semantics_pc.ply"
@@ -34,7 +30,6 @@ pcd = o3d.io.read_point_cloud(os.path.join(input_path,dataname))
 points = np.asarray(pcd.points)
 
 #points_cam = np.sum(points[:, None, :] *rot_T, axis=-1) - c2w[:3,3]
-
 
 #points[:,-1]*=-1
 points_h = np.hstack((points, np.ones((points.shape[0], 1))))
@@ -62,8 +57,6 @@ def get_projection(P, points):
      im /= -im[:, 2:3]
      return im
 
-
-
 def super_point_projection(camera_mat):
      cluster_data = np.load(os.path.join(input_path, 'all_super_cluster_info.npy'), allow_pickle=True)
      n_super_clusters = len(cluster_data)
@@ -82,11 +75,8 @@ def super_point_projection(camera_mat):
           # plt.scatter(u, v, s=0.1)
           plt.show()
 
-
-
 P = get_projection_mat(fx, fy, cx, cy, c2w)
 super_point_projection(P)
 #
-
 
 # Extract 2D image coordinates

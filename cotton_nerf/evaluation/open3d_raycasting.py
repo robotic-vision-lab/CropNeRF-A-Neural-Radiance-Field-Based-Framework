@@ -18,9 +18,6 @@ c2w = np.asarray( [[-0.02684204,0.99940807,0.021519292,-0.22928147],
 [-0.6656043,-0.0018073402,-0.74630266,-0.8462026],
 [-0.745822,-0.034355618,0.66525877,0.10826472]])
 
-
-
-
 def get_projection_mat(fx, fy, cx, cy, c2w):  # 3D points
     orig = c2w[:3, 3]
     rot_inv = c2w[:3, :3].T
@@ -43,9 +40,6 @@ def get_super_cluster(super_cluster_info, idx):
     cluster_pc = np.vstack([pc for _,pc in sup_pc.items()])
     return cluster_pc
 
-
-
-
 def get_sub_cloud_projection(P, sub_pc):
     pass
 
@@ -65,15 +59,6 @@ dataname="semantics_pc.ply"
 cluster_info_path = os.path.join(input_path, 'all_super_cluster_info.npy')
 cluster_info = np.load(cluster_info_path, allow_pickle=True)
 cluster = get_super_cluster(cluster_info, 0)
-
-
-
-
-
-
-
-
-
 device = o3d.core.Device("CPU:0")
 pcd = o3d.io.read_point_cloud(os.path.join(input_path, dataname))
 pcd = pcd.voxel_down_sample(voxel_size=10e-4)
@@ -105,20 +90,6 @@ img[valid_rays] = 255
 #Visualize the hit distance (depth)
 plt.imshow(img)
 plt.show()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 # import open3d as o3d
 # import numpy as np

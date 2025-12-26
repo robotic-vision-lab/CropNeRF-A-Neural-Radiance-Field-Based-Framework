@@ -7,7 +7,6 @@ import os
 from collections import Counter
 from sklearn.cluster import AgglomerativeClustering
 
-
 def show_pcd(pcd, labels=None):
     if labels is not None:
         max_label = labels.max()
@@ -48,10 +47,9 @@ def cluster_dbscan(pcd, eps=0.1, min_points=10):
     #         cluster_pcd = pcd.select_by_index(cluster_indices)
     #         clusters.append(cluster_pcd)
 
-    return  labels
+    return labels
 
 def cluster_kmeans(pcd, k=10, consider_normals=False):
-
     if consider_normals:
         if not pcd.has_normals():
             pcd.estimate_normals()
@@ -68,14 +66,12 @@ def cluster_kmeans(pcd, k=10, consider_normals=False):
     kmeans_cluster.fit(features)
     labels = kmeans_cluster.labels_
 
-    return  labels
-
+    return labels
 
 def cluster_kmeans_elbow(pcd, max_k=10):
     from sklearn.metrics import silhouette_score
     features = np.asarray(pcd.points)
     sil = []
-
 
     # dissimilarity would not be defined for a single cluster, thus, minimum number of clusters should be 2
     prev_inertia = 1000
@@ -91,8 +87,6 @@ def cluster_kmeans_elbow(pcd, max_k=10):
 
 def spectral_clustering(pcd, k=5):
     features = np.asarray(pcd.points)
-
-
     clustering = SpectralClustering(n_clusters=k,
                                     affinity= 'nearest_neighbors',
                                     n_neighbors = 4,
@@ -104,7 +98,6 @@ def spectral_clustering(pcd, k=5):
 
 def plot_histogram_from_counter(labels):
     """Plots a histogram from a Counter object."""
-
     labels, values = zip(*counter.items())
     plt.bar(labels, values)
     plt.xlabel("Values")
@@ -135,7 +128,6 @@ def view_super_point(super_clusters_pcd, labels, nth=0, vx_size = 10e-4):
 
     return labels
 
-
 def get_super_cluster(pcd, vx_size =  10e-4, ): #5 * 10e-5
     downpcd = pcd.voxel_down_sample(voxel_size=vx_size)  # .005
     #pcd = downpcd
@@ -149,8 +141,6 @@ def get_super_cluster(pcd, vx_size =  10e-4, ): #5 * 10e-5
     labels = labels[ind]
 
     return pcd, labels
-
-
 
 # Example usage:
 if __name__ == "__main__":

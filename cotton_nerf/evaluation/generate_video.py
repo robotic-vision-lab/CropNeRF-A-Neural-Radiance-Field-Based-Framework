@@ -14,8 +14,6 @@ import matplotlib
 from matplotlib import cm, colors
 cmap = matplotlib.colors.ListedColormap(cm.tab20.colors + cm.tab20c.colors, name='tab40')
 
-
-
 def pointcloud_to_video(pcd, labels=None, full_tree=None, output_path="output.mp4", num_frames=180, fps=20,  radius=1.0, height=.7, tilt_deg=10):
     # Load point cloud
     # pcd = o3d.io.read_point_cloud(pcd_path)
@@ -45,8 +43,6 @@ def pointcloud_to_video(pcd, labels=None, full_tree=None, output_path="output.mp
         #vis.add_geometry(full_tree)
         #pcd = pcd + full_tree
     vis.add_geometry(pcd)
-
-
 
     # Get render option (optional: adjust size, color, bg, etc.)
     render_opt = vis.get_render_option()
@@ -120,7 +116,6 @@ def pointcloud_to_video(pcd, labels=None, full_tree=None, output_path="output.mp
     out.release()
     print(f"Saved orbit video to {output_path}")
 
-
 def view_super_clusters(basedir, recording):
     input_path = os.path.join(basedir, recording, 'pcd',  'all_super_cluster_info.npy' )
     tree_pcd_file = 'full_tree_pc.ply'
@@ -150,15 +145,10 @@ def view_super_clusters(basedir, recording):
     #show_pcd(pcd, np.asarray(labels), pcd_tree, None)
     pointcloud_to_video(pcd, np.asarray(labels), pcd_tree)
 
-
-
 def generate_segmentation_output_vid(basedir, recording):
     input_path = os.path.join(basedir, recording, 'pcd', 'full_tree_seg_result.ply')
     pcd_data = o3d.io.read_point_cloud(input_path)
     pointcloud_to_video(pcd_data )
-
-
-
 
 if __name__ == "__main__":
     basedir = r'D:\3d_phenotyping\artifacts'

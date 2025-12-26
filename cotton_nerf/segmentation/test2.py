@@ -20,21 +20,13 @@ def get_intrinsic(width, height):
                         [0, fy, cy],
                         [0, 0, 1]])
 
-
-
-
-
 def get_extrinsic(K):
-
-
     camera_to_worlds = np.asarray([
         [0.046825625,0.9985399,0.026933009,0.047231793],
 [-0.67224306,0.051444445,-0.73854095,-0.931187],
 [-0.73884815,0.016477115,0.6736705,0.2662813],
 [0,0,0,1]
         ])
-
-
 
     R = camera_to_worlds[:3, :3]  # 3 x 3
     R_edit = np.diag([1, 1, 1])
@@ -55,10 +47,7 @@ def get_extrinsic(K):
     viewmat[:3, :] = p
     #viewmat = np.linalg.inv(camera_to_worlds)
 
-
     return viewmat
-
-
 
 input_path= r'C:\Users\MuzaddidMdAhmedAl\docker_mount\outputs\exports\pcd'
 dataname="point_cloud.ply"

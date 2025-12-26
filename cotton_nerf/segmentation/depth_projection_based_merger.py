@@ -58,10 +58,7 @@ def get_component(affinity, algo):
             labels[c] = l
             l += 1
 
-
     return len(components), labels
-
-
 
 def draw_graph_from_adjacency_matrix(adj_matrix):
     """
@@ -73,8 +70,6 @@ def draw_graph_from_adjacency_matrix(adj_matrix):
     plt.show()
 
 def show_pcd(pcd, labels, full_tree=None):
-
-
     cmap = matplotlib.colors.ListedColormap(cm.tab20.colors + cm.tab20c.colors, name='tab40')
     max_label = labels.max()
     #colors = plt.get_cmap("tab20")(labels / (max_label if max_label > 0 else 1))
@@ -113,7 +108,6 @@ def create_pcd_with_labels(pcd_data,super_cluster_id, super_point_labels):
     pcd.points = o3d.utility.Vector3dVector(np.vstack(points))
     return pcd, np.concatenate(labels)
 
-
 ######################################################## Function to draw overly cand coping label images###############
 # def overly_mask_with_projection(projection_dir, label_dir, args):
 #     print("Generating overly and coping label frames")
@@ -141,7 +135,6 @@ def create_pcd_with_labels(pcd_data,super_cluster_id, super_point_labels):
 #         cv2.imwrite(segment_img_path, overlayed_img)
 #         cv2.imwrite(os.path.join(overlay_dir, f'label_{img_name}'), overlayed_img)
 
-
 def overly_mask_with_projection(projection_dir, label_dir, args):
     print("Generating overly and coping label frames")
     cam_dirs = [os.path.basename(x) for x in glob.glob(f"{projection_dir}/cam_*")]
@@ -168,15 +161,11 @@ def overly_mask_with_projection(projection_dir, label_dir, args):
         cv2.imwrite(segment_img_path, overlayed_img)
         cv2.imwrite(os.path.join(overlay_dir, f'label_{img_name}'), overlayed_img)
 
-
-
-
 #####################################  Core functions to calculte overlaps and affinity ##############################
 def get_visible_projection_area(args, camdir, cid,  bbox_xyxy=None, thres=127):
     visible_projection_path = os.path.join(camdir, f'{args.visible_img_prefix}_{cid}.png')
     segment_label_path = glob.glob(os.path.join(camdir, 'label_frame*.png'))[0]
     img = cv2.imread(visible_projection_path)[bbox_xyxy[1]:bbox_xyxy[3], bbox_xyxy[0]:bbox_xyxy[2]]
-
 
     img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     ret, thresholded_img = cv2.threshold(img, thres, 255, cv2.THRESH_BINARY)
@@ -211,8 +200,6 @@ def get_visible_projection_area(args, camdir, cid,  bbox_xyxy=None, thres=127):
 
     return area, label, label_area
 
-
-
 def get_wo_occlusion_projection_area(fname, thres):
     img = cv2.imread(fname)
     img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -235,10 +222,7 @@ def get_wo_occlusion_projection_area(fname, thres):
 
     return area, bbox_xyxy
 
-
-
 def process_super_cluster(projection_dir, n_super_points, binary_thresh, args):
-
     cams_dir = [os.path.basename(x) for x in glob.glob(f"{projection_dir}/cam_*")]
     superpoint_id = [i for i in range(n_super_points)]
     cluster_prop = {}
@@ -288,7 +272,6 @@ def process_super_cluster(projection_dir, n_super_points, binary_thresh, args):
 
     return cluster_prop
 
-
 def calc_affinity(cluser_prop):
     n_clusters = len(cluser_prop)
     affinity = np.zeros((n_clusters, n_clusters))
@@ -310,11 +293,8 @@ def calc_affinity(cluser_prop):
             affinity[j, i] = affinity[i, j]
 
     return affinity
-    #
-
 
 # def infer_count(arg):
-
 
 def main():
     parser = argparse.ArgumentParser()
@@ -343,7 +323,6 @@ def main():
     pcd_data = np.load(pcd_path, allow_pickle=True)
     n_super_clusters = len(pcd_data)
     super_point_per_cluster = pcd_data[0]['aabb'].shape[0]
-
 
     def handle_single_super_cluster(super_cluster_idx):
         super_cluster_dir = os.path.join(projection_dir, f'super_cluster_{super_cluster_idx}')
@@ -417,4 +396,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-

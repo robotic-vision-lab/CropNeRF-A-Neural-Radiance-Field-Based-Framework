@@ -11,15 +11,12 @@ from tqdm import tqdm
 import  pickle
 #from fruit_nerf.clustering import cluster_kmeans, cluster_dbscan, cluster_kmeans_elbow
 
-
 from matplotlib.colors import ListedColormap
 from matplotlib.cm import hsv
 import math
 
 def spectral_clustering(pcd, k=5):
     features = np.asarray(pcd.points)
-
-
     clustering = SpectralClustering(n_clusters=k,
                                     affinity= 'nearest_neighbors',
                                     n_neighbors = 8,
@@ -29,7 +26,6 @@ def spectral_clustering(pcd, k=5):
     return clustering.labels_
 
 def cluster_kmeans(pcd, k=10, consider_normals=False):
-
     if consider_normals:
         if not pcd.has_normals():
             pcd.estimate_normals()
@@ -48,7 +44,6 @@ def cluster_kmeans(pcd, k=10, consider_normals=False):
 
     return  labels
 
-
 def crop(pcd):
     min_bound = np.array([-1, -1, -1])
     max_bound = np.array([1, 1, 1])
@@ -65,7 +60,6 @@ def show_pcd(pcd, labels):
     colors[labels < 0] = 0
     pcd.colors = o3d.utility.Vector3dVector(colors[:, :3])
     o3d.visualization.draw_geometries([pcd])
-
 
 #o3d.visualization.draw_geometries([pcd])
 
@@ -90,7 +84,6 @@ def get_super_clusters(pcd, vx_size = 10e-5): # 10e-4 for apple,cot, 10e-5 for p
     max_label = labels.max()
     print(f"point cloud has {max_label + 1} clusters")
     return pcd, labels
-
 
 def get_nth_largest_super_point(pcd, labels, n):
     largest_cluster_label = sorted([(v,k) for k,v in Counter(labels.tolist()).items()],reverse=True)[n][1]
@@ -133,9 +126,7 @@ def get_bounds():
     bounds = bounds_as_sorted_list(sub_clouds, labels)
     return bounds
 
-
 def process_and_save(pcd_path, nth_largest, k, save_path):
-
     pcd = o3d.io.read_point_cloud(pcd_path)
     sub_clouds, labels = get_super_clusters(pcd)
     pcd_of_interest, lables = get_nth_largest_super_point(sub_clouds, labels, nth_largest)
@@ -159,9 +150,7 @@ def process_and_save(pcd_path, nth_largest, k, save_path):
 
     print(f'Point cloud saved to {save_path}')
 
-
 def process_and_save_all(pcd_path, k, save_path):
-
     pcd = o3d.io.read_point_cloud(pcd_path)
     pcd, labels = get_super_clusters(pcd)
     cluster_labels = sorted([(v, k) for k, v in Counter(labels.tolist()).items()], reverse=True)#[n][1]
@@ -214,7 +203,6 @@ def view_sub_clusters(pcd_path, super_clusters_idx, k):
     labels = cluster_kmeans(pcd_of_interest, k=k)
     show_pcd(pcd_of_interest, labels)
 
-
 if __name__ == "__main__":
     video = sys.argv[1] #'recording_2024-09-11_12-42-36'
     input_path = rf'C:\Users\MuzaddidMdAhmedAl\docker_mount\artifacts\{video}\pcd'
@@ -237,18 +225,6 @@ if __name__ == "__main__":
     # labels = cluster_kmeans(largest_super_point, k= 5)
     # show_pcd(largest_super_point, labels)
 
-
-
-
-
-
-
-
-
-
-
-
-
 ######################## End of second stage
 # pcd = subset_pcd
 # c = Counter(labels)
@@ -259,5 +235,3 @@ if __name__ == "__main__":
 # labels = np.array(subset_pcd.cluster_dbscan(eps=vx_size, min_points=5, print_progress=True))
 # max_label = labels.max()
 # print(f" subset point cloud has {max_label + 1} clusters")
-
-
