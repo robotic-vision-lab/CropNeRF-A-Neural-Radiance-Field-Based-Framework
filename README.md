@@ -86,7 +86,7 @@ the following structure.
 
 ```
 3DCotton/
-  - plant_01
+  - plant_1
     - images
       - frame_00001.jpg
       - frame_00002.jpg
@@ -96,7 +96,7 @@ the following structure.
       - frame_00002.jpg
       - ...
    
-  - plant_02
+  - plant_2
     - images
       - frame_00001.jpg
       - frame_00002.jpg
@@ -111,7 +111,7 @@ the following structure.
 
 #### Covert Segmentation Image to Label Image
 
-    $ python fruit_nerf/utils/convert_segmentation_img_to_label.py 'plant_01'
+    $ python fruit_nerf/utils/convert_segmentation_img_to_label.py 'plant_1'
 
 
 #### Point Cloud Generation
@@ -120,20 +120,20 @@ We utilize the 3D point cloud generation implementation from
 [FruitNeRF](https://github.com/meyerls/FruitNeRF). To train a NeRF model to
 generate a 3D point cloud, invoke the following commands: 
 
-    $ python debug/train.py fruit_nerf --data /opt/data/training_data/tree_01 --output-dir /opt/data/trained_model
-    $ ns-export pointcloud --load-config /opt/data/trained_model/tree_01/fruit_nerf/{filename}/config.yml --output-dir exports/pcd/ --num-points 10000000 --remove-outliers True --normal-method open3d --save-world-frame False --obb_center -0.0571471367 0.1105365818 -0.5400721172 --obb_rotation 0.0000000000 0.0000000000 0.0000000000 --obb_scale 1.0000000000 1.0000000000 1.0000000000
+    $ python debug/train.py fruit_nerf --data /opt/data/training_data/plant_1 --output-dir /opt/data/trained_model
+    $ ns-export pointcloud --load-config /opt/data/trained_model/plant_1/fruit_nerf/{filename}/config.yml --output-dir exports/pcd/ --num-points 10000000 --remove-outliers True --normal-method open3d --save-world-frame False --obb_center -0.0571471367 0.1105365818 -0.5400721172 --obb_rotation 0.0000000000 0.0000000000 0.0000000000 --obb_scale 1.0000000000 1.0000000000 1.0000000000
     
 #### Segment Pointcloud into Superclusters and Subclusters
 
-    $ python segmentation/segmenter.py tree_01
+    $ python segmentation/segmenter.py plant_1
 
 #### Export Projection from the Model
 
-    $python fruit_nerf/scripts/semantic_projection.py pointcloud --load-config /opt/data/trained_model/tree_01/fruit_nerf/{filename}/config.yml --output-dir /opt/data/outputs/exports/pcd/
+    $python fruit_nerf/scripts/semantic_projection.py pointcloud --load-config /opt/data/trained_model/plant_1/fruit_nerf/{filename}/config.yml --output-dir /opt/data/outputs/exports/pcd/
 
 #### Merge Subclusters into Crop Instances
 
-    $ python segmentation/merger.py --base_dir {base_directory} --recording_name tree_01
+    $ python segmentation/merger.py --base_dir {base_directory} --recording_name plant_1
 
 ### CropNeRF Source Code License
 
