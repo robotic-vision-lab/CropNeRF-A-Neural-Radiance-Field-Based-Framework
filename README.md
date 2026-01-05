@@ -6,26 +6,27 @@ Rigorous crop counting is crucial for effective agricultural management and
 informed intervention strategies. However, in outdoor field environments,
 partial occlusions combined with inherent ambiguity in distinguishing clustered
 crops from individual viewpoints poses an immense challenge for image-based
-segmentation methods.  To address these problems, we introduce a novel crop
+segmentation methods. To address these problems, we propose a novel crop
 counting framework designed for exact enumeration via 3D instance segmentation.
 
-<p align="center">
+<p align="center">k
   <img src="images/overview.png" alt="overview" width="400"/>
 </p>
 
 This repository provides source code for our paper titled "[CropNeRF: A Neural
-Radiance Field-Based Framework for Crop Counting]()." Our approach utilizes 2D
-images captured from multiple viewpoints and associates independent instance
-masks for neural radiance field (NeRF) view synthesis. Concretely, we introduce
-crop visibility and mask consistency scores, which are incorporated alongside
-3D information from a NeRF model. This results in an effective segmentation of
-crop instances in 3D and highly-accurate crop counts. Furthermore, our method
-eliminates the dependence on crop-specific parameter tuning. We validate our
-framework on agricultural datasets and demonstrate consistent counting
-performance despite major variations in crop color, shape, and size. A
-comparative analysis against the state of the art highlights superior
-performance on crop counting tasks. We also contribute a cotton plant dataset,
-3DCotton, to advance further research on this topic.
+Radiance Field-Based Framework for Crop Counting](https://arxiv.org/pdf/2601.00207)." 
+Our approach utilizes 2D images captured from multiple viewpoints and
+associates independent instance masks for neural radiance field (NeRF) view
+synthesis. Concretely, we introduce crop visibility and mask consistency
+scores, which are incorporated alongside 3D information from a NeRF model. This
+results in an effective segmentation of crop instances in 3D and
+highly-accurate crop counts. Furthermore, our method eliminates the dependence
+on crop-specific parameter tuning. We validate our framework on agricultural
+datasets and demonstrate consistent counting performance despite major
+variations in crop color, shape, and size. A comparative analysis against the
+state of the art highlights superior performance on crop counting tasks. We
+also contribute a cotton plant dataset, 3DCotton, to advance further research
+on this topic.
 
 More information on the project can be found on the [CropNeRF
 website](https://robotic-vision-lab.github.io/cropnerf).
@@ -36,20 +37,21 @@ If you find this project useful, then please consider citing both our paper and
 dataset.
 
 ```bibitex
-@inproceedings{cropNeRF,
-  title={CropNeRF: A Neural Radiance Field-Based Framework for Crop Counting},
+@article{muzaddid2026cropnerf,
+  title={CropNeRF: A neural radiance field-based framework for crop counting},
   author={Al Muzaddid, Md Ahmed and Beksi, William J},
-  year={2025}
+  journal={arXiv preprint arXiv:2601.00207},
+  year={2026}
 }
 
-@data{mavmatrix/dataset.2024.05.005,
+@data{mavmatrix/dataset.xxx,
   title={{3DCotton}},
   author={Al Muzaddid, Md Ahmed and Beksi, William J},
   publisher={MavMatrix},
   version={V1},
-  url={https://doi.org/10.32855/dataset.2024.05.005},
-  doi={10.32855/dataset.2024.05.005},
-  year={2025}
+  url={https://doi.org/xxx/dataset.xxx},
+  doi={xxx/dataset.xxx},
+  year={2026}
 }
 
 ```
