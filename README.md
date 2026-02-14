@@ -44,7 +44,7 @@ dataset.
   year={2026}
 }
 
-@data{mavmatrix/dataset.xxx,
+@data{mavmatrix/dataset.2026.02.042,
   title={{3DCotton}},
   author={Al Muzaddid, Md Ahmed and Beksi, William J},
   publisher={MavMatrix},
