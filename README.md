@@ -81,10 +81,10 @@ Finally, set the enviroment variables
 
 ### 3DCotton Dataset 
 
-Download the [3DCotton](...) dataset files. 3DCotton consists of eight
-folders of cotton plant data for performing 3D reconstruction. Each folder
-contains images and SegmentationObject subfolder. The dataset directories have
-the following structure.
+Download the [3DCotton](https://mavmatrix.uta.edu/rvl_agri_datasets/1) dataset
+files. 3DCotton consists of eight folders of cotton plant data for performing
+3D reconstruction. Each folder contains the images, segmentations, and
+transforms. The dataset directories have the following structure.
 
 ```
 3DCotton/
@@ -93,7 +93,7 @@ the following structure.
       - frame_00001.jpg
       - frame_00002.jpg
       - ...
-    - SegmentationObject
+    - segmentation_object
       - frame_00001.jpg
       - frame_00002.jpg
       - ...
@@ -103,7 +103,7 @@ the following structure.
       - frame_00001.jpg
       - frame_00002.jpg
       - ...
-    - SegmentationObject
+    - segmentation_object
       - frame_00001.jpg
       - frame_00002.jpg
       - ...
@@ -114,7 +114,6 @@ the following structure.
 #### Covert Segmentation Image to Label Image
 
     $ python fruit_nerf/utils/convert_segmentation_img_to_label.py 'plant_1'
-
 
 #### Point Cloud Generation
 
