@@ -49,8 +49,8 @@ dataset.
   author={Al Muzaddid, Md Ahmed and Beksi, William J},
   publisher={MavMatrix},
   version={V1},
-  url={https://doi.org/xxx/dataset.xxx},
-  doi={xxx/dataset.xxx},
+  url={https://doi.org/10.32855/dataset.2026.02.042},
+  doi={10.32855/dataset.2026.02.042},
   year={2026}
 }
 
