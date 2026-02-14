@@ -83,7 +83,7 @@ Finally, set the enviroment variables
 
 Download the [3DCotton](https://mavmatrix.uta.edu/rvl_agri_datasets/1) dataset
 files. 3DCotton consists of eight folders of cotton plant data for performing
-3D reconstruction. Each folder contains the images, segmentations, and
+3D reconstruction. Each folder contains the plant images, segmentations, and
 transforms. The dataset directories have the following structure.
 
 ```
