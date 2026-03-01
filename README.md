@@ -44,13 +44,13 @@ dataset.
   year={2026}
 }
 
-@data{mavmatrix/dataset.2026.02.042,
+@data{mavmatrix/dataset.2026.02.044,
   title={{3DCotton}},
   author={Al Muzaddid, Md Ahmed and Beksi, William J},
   publisher={MavMatrix},
   version={V1},
-  url={https://doi.org/10.32855/dataset.2026.02.042},
-  doi={10.32855/dataset.2026.02.042},
+  url={https://doi.org/10.32855/dataset.2026.02.044},
+  doi={10.32855/dataset.2026.02.044},
   year={2026}
 }
 
