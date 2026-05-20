@@ -9,7 +9,7 @@ crops from individual viewpoints poses an immense challenge for image-based
 segmentation methods. To address these problems, we propose a novel crop
 counting framework designed for exact enumeration via 3D instance segmentation.
 
-<p align="center">k
+<p align="center">
   <img src="images/overview.png" alt="overview" width="400"/>
 </p>
 
